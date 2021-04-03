@@ -4,9 +4,8 @@
 import csv
 import os
 
-# Files to read, and file to output
+# Files to read
 budget_data = os.path.join("Resources", "budget_data.csv")
-financial_analysis = os.path.join("Analysis", "financial_analysis.csv")
 
 # Read in the CSV file
 with open(budget_data, 'r') as csvfile:
@@ -47,8 +46,8 @@ with open(budget_data, 'r') as csvfile:
         average_change += int(profit_list[i]) - int(profit_list[i-1])
         i += 1
 
-    # Calculate average change by diving the monthly change by number of months
-    average_change = "{:.2f}".format(average_change / (months_number))
+    # Calculate average change by diving the monthly change by number of changes
+    average_change = "{:.2f}".format(average_change / ((months_number)-1))
 
     # Summary table
     print("Financial Analysis")
